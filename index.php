@@ -46,9 +46,10 @@ if (isset($_POST['btn-login'])) {
     if (!$error) {
         // hash () returns a hash value for the given data ($pass) based on the algorithm sha256
         $password = hash('sha256', $pass);
-        $sql = "SELECT * FROM users WHERE email= '$email;' AND password = '$password'";
+        $sql = "SELECT * FROM users WHERE email= '$email' AND password = '$password'";
         $result = mysqli_query($connect, $sql);
         $row = mysqli_fetch_assoc($result);
+       
 // checks the number of records matching email and password
         $count = mysqli_num_rows($result);
 // if there is at least one record.
